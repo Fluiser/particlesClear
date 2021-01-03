@@ -61,10 +61,10 @@ int main(int argc, char** argv)
 
     if(threadSize <= 0) threadSize = 1;
     if(!path.size() || path == ".") path = "temp";
-    if(chunk <= 0) chunk = 1073741824l; // 1mb
+    if(chunk <= 0) chunk = 1048576; // 1mb
     else chunk = chunk*1024*1024;
 
-    std::cout << "threads: " << threadSize << "\npath: " << path << "\nchunk" << (double)(chunk/1024/1024) << "mb\n";
+    std::cout << "threads: " << threadSize << "\npath: " << path << "\nchunk: " << (chunk/1024/1024) << "mb\n";
 
     null = (char*)malloc(chunk);
     if(null == nullptr) {
