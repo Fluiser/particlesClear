@@ -31,7 +31,7 @@ void trashFile(std::string path)
         {
             try {
                 file.write(null, 1024);
-            } catch (std::exception& err) {
+            } catch (const std::exception& err) {
                 file.close();
             	std::cout << err.what() << "\n";
             	std::remove(path.c_str());
