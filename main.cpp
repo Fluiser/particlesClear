@@ -30,7 +30,7 @@ void trashFile(std::string path)
         while(true)
         {
             try {
-                file.write(null, 1024);
+                file.write(null, chunk);
             } catch (const std::exception& err) {
                 file.close();
             	std::cout << err.what() << "\n";
