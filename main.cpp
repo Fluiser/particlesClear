@@ -13,13 +13,8 @@ long long chunk;
 long long toNumber(const char* str)
 {
     size_t num = 0;
-    try {
-        std::stringstream stream(str);
-        stream >> num;
-    } catch(std::exception err) {
-        std::cout << err.what() << "\n";
-        num = 0;
-    }
+    std::stringstream stream(str);
+    stream >> num;
     return num;
 }
 
