@@ -72,13 +72,14 @@ int main(int argc, char** argv)
         threads.push_back(std::thread(trashFile, path + std::to_string(i)));
     }
 
-waiter:
-    if(threads.size()) {
-        auto &thread = threads.back();
-        thread.join();
+    while(threads.size())
+    {
+        auto& thread = threads.back();
+        if(thread.joinable())
+            thread.join();
         threads.pop_back();
-        goto waiter;
     }
+
     free(null);
     std::cout << "END\n";
     return 0;
