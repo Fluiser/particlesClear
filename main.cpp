@@ -65,6 +65,11 @@ int main(int argc, char** argv)
     if(null == nullptr) {
     	std::cout << "Can't allocate memory\n";
     	return 1;
+    } else {
+        for(size_t i = 0; i < chunk; ++i)
+        {
+            null[i] = (i%127);
+        }
     }
 
     for(size_t i = 0; i < threadSize; ++i)
